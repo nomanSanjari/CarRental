@@ -6,6 +6,7 @@ DROP TABLE IF EXISTS Customer;
 DROP TABLE IF EXISTS Employee;
 DROP TABLE IF EXISTS Vehicle;
 DROP TABLE IF EXISTS Rental;
+DROP TABLE IF EXISTS Discount;
 
 CREATE TABLE Customer (
     id INT PRIMARY KEY AUTO_INCREMENT,  -- Auto-generated ID
@@ -49,6 +50,12 @@ CREATE TABLE Rental (
     CONSTRAINT FK_Rental_Vehicle FOREIGN KEY (vehicle_id) REFERENCES Vehicle (id),
     CONSTRAINT FK_Rental_Employee FOREIGN KEY (employee_id) REFERENCES Employee (id),
     CONSTRAINT FK_Rental_Customer FOREIGN KEY (customer_id) REFERENCES Customer (id)
+);
+
+CREATE TABLE Discount (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    discount_type VARCHAR(50),
+    discount_percentage int
 );
 
 SET FOREIGN_KEY_CHECKS = 1;

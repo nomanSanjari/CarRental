@@ -45,7 +45,7 @@ async def login(request: Dict):
 			content=result
 		)
 		response.set_cookie(
-			key="CustomerID",
+			key="EmployeeID",
 			value=result["id"],
 			httponly=True
 		)

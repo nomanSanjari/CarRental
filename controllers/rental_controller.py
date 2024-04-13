@@ -6,7 +6,7 @@ class RentalController:
 	def create_rental(self, start_date, end_date, vehicle_id, employee_id, customer_id):
 		db = get_db_connection()
 		cursor = db.cursor()
-		sql = """INSERT INTO Rental (start_date, end_date, vehicle_id, employee_id, customer_id) VALUES (%s, %s, %s, %s, %s)"""
+		sql = """INSERT INTO Rental (start_date, end_date, vehicle_id, employee_id, customer_id, discount_id) VALUES (%s, %s, %s, %s, %s, %s)"""
 		values = (start_date, end_date, vehicle_id, employee_id, customer_id)
 
 		try:

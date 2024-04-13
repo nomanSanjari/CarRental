@@ -1,10 +1,12 @@
 from fastapi import FastAPI
-from routers import customer_router, employee_router, vehicle_router, auth_router
+from routers import customer_router, employee_router, vehicle_router, auth_router, discount_router, rental_router
 
 app = FastAPI()
 app.include_router(customer_router.router, prefix="/api")
 app.include_router(employee_router.router, prefix="/api")
 app.include_router(vehicle_router.router, prefix="/api")
+app.include_router(discount_router.router, prefix="/api")
+app.include_router(rental_router.router, prefix="/api")
 app.include_router(auth_router.router, prefix="/api")
 
 

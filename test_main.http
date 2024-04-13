@@ -10,7 +10,7 @@ Accept: application/json
 
 ###
 
-POST http://127.0.0.1:8000/customers/create_customer
+POST http://127.0.0.1:8000/api/customers/create_customer
 Content-Type: application/json
 Accept: application/json
 

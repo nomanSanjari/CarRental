@@ -4,12 +4,11 @@ from utils.hasher import hash_password
 
 
 class VehicleController():
-	def create_vehicle(self, vin, make, model, vehicle_class, weekly_rate, daily_rate, odometer_reading,
-					   is_available=True):
+	def create_vehicle(self, vin, make, model, vehicle_class, weekly_rate, daily_rate, odometer_reading, drive_train, is_available):
 		db = get_db_connection()
 		cursor = db.cursor()
-		sql = """INSERT INTO Vehicle (vin, make, model, vehicle_class, weekly_rate, daily_rate, odometer_reading, is_available) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"""
-		values = (vin, make, model, vehicle_class, weekly_rate, daily_rate, odometer_reading, is_available)
+		sql = """INSERT INTO Vehicle (vin, make, model, vehicle_class, weekly_rate, daily_rate, odometer_reading, drive_train, is_available) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+		values = (vin, make, model, vehicle_class, weekly_rate, daily_rate, odometer_reading, drive_train, is_available)
 		try:
 			cursor.execute(sql, values)
 			db.commit()
@@ -44,7 +43,7 @@ class VehicleController():
 		return
 
 	def update_vehicle(self, vehicle_id, **kwargs):
-		fields = ("vin", "make", "model", "vehicle_class", "weekly_rate", "daily_rate", "odometer_reading", "is_available")
+		fields = ("vin", "make", "model", "vehicle_class", "weekly_rate", "daily_rate", "odometer_reading", "drive_train", "is_available")
 		updates = [f"{field} = %s" for field in kwargs.keys() if field in fields]
 
 		if not updates:

@@ -17,9 +17,10 @@ async def create_vehicle(request: Dict):
 	weekly_rate = request["weekly_rate"]
 	daily_rate = request["daily_rate"]
 	odometer_reading = request["odometer_reading"]
+	drive_train = request["drive_train"]
 	is_available = request["is_available"]
 
-	if controller.create_vehicle(vin, make, model, vehicle_class, weekly_rate, daily_rate, odometer_reading, is_available):
+	if controller.create_vehicle(vin, make, model, vehicle_class, weekly_rate, daily_rate, odometer_reading, drive_train, is_available):
 		return JSONResponse(
 			status_code=status.HTTP_201_CREATED,
 			content={"message": "Vehicle created successfully"}

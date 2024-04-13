@@ -42,6 +42,29 @@ class VehicleController():
 		db.close()
 		return
 
+	def search_vehicles(self, is_available, drive_train, vehicle_class, vehicle_type):
+		db = get_db_connection()
+		cursor = db.cursor(pymysql.cursors.DictCursor)
+
+		query = "SELECT * FROM Vehicle WHERE 1 = 1"  # Base query
+		params = []
+
+		if is_available is not None:
+			query += " AND is_available = %s"
+			params.append(is_available)
+		if drive_train:
+			query += " AND drive_train = %s"
+			params.append(drive_train)
+		if vehicle_class:
+			query += " AND vehicle_class = %s"
+			params.append(vehicle_class)
+		if vehicle_type:
+			query += " AND vehicle_type = %s"
+			params.append(vehicle_type)
+
+		cursor.execute(query, params)
+		return cursor.fetchall()
+
 	def update_vehicle(self, vehicle_id, **kwargs):
 		fields = ("vin", "make", "model", "vehicle_class", "weekly_rate", "daily_rate", "odometer_reading", "drive_train", "is_available")
 		updates = [f"{field} = %s" for field in kwargs.keys() if field in fields]

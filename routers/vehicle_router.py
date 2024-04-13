@@ -71,6 +71,29 @@ async def get_vehicle_by_vin(request: Dict):
 			detail="Vehicle not found"
 		)
 
+@router.get("/search_vehicles")
+async def search_vehicles(request: Dict):
+	if request["is_available"]:
+		is_available = request["is_available"]
+	else:
+		is_available = None
+
+	if request["drive_train"]:
+		drive_train = request["drive_train"]
+	else:
+		drive_train = None
+
+	if request["vehicle_class"]:
+		vehicle_class = request["vehicle_class"]
+	else:
+		vehicle_class = None
+
+	if request["vehicle_type"]:
+		vehicle_type = request["vehicle_type"]
+	else:
+		vehicle_type = None
+
+	return controller.search_vehicles(is_available, drive_train, vehicle_class, vehicle_type)
 
 # UPDATE
 @router.put("/update_vehicle")

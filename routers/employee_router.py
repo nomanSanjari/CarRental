@@ -46,6 +46,10 @@ async def get_employee_by_id(request: Dict):
 		)
 
 
+@router.get("/get_pending_rentals")
+async def get_pending_rentals():
+	return controller.get_pending_rentals()
+
 @router.get("/get_all_employee")
 async def get_all_employee():
 	return controller.get_all_employees()

@@ -48,12 +48,14 @@ CREATE TABLE Rental (
     employee_id INT NOT NULL, 
     customer_id INT NOT NULL,
     discount_id INT NOT NULL,
+    
     verified BOOLEAN DEFAULT FALSE,
-
-    CONSTRAINT FK_Rental_Vehicle FOREIGN KEY (vehicle_id) REFERENCES Vehicle (id),
-    CONSTRAINT FK_Rental_Employee FOREIGN KEY (employee_id) REFERENCES Employee (id),
-    CONSTRAINT FK_Rental_Customer FOREIGN KEY (customer_id) REFERENCES Customer (id),
-    CONSTRAINT FK_Rental_Discount FOREIGN KEY (discount_id) REFERENCES Discount (id)
+    total_price INT NOT NULL,
+    
+    FOREIGN KEY (vehicle_id) REFERENCES Vehicle (id),
+    FOREIGN KEY (employee_id) REFERENCES Employee (id),
+    FOREIGN KEY (customer_id) REFERENCES Customer (id),
+    FOREIGN KEY (discount_id) REFERENCES Discount (id)
 );
 
 CREATE TABLE Discount (

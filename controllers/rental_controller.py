@@ -1,13 +1,25 @@
 from db_connection import get_db_connection
+from utils.pricing import calculate_daily_price, calculate_weekly_price, calculate_price_after_discount
 import pymysql.err
 
 
 class RentalController:
-	def create_rental(self, start_date, end_date, vehicle_id, employee_id, customer_id):
+	def create_rental(self, start_date, end_date, vehicle_id, employee_id, customer_id, discount_id, pricing_type):
 		db = get_db_connection()
 		cursor = db.cursor()
-		sql = """INSERT INTO Rental (start_date, end_date, vehicle_id, employee_id, customer_id, discount_id) VALUES (%s, %s, %s, %s, %s, %s)"""
-		values = (start_date, end_date, vehicle_id, employee_id, customer_id)
+		sql = """INSERT INTO Rental (start_date, end_date, vehicle_id, employee_id, customer_id, discount_id, verified, total_price) VALUES (%s, %s, %s, %s, %s, %s)"""
+
+		verified = False
+		total_price = 0
+
+		if pricing_type == "daily":
+			total_price = calculate_daily_price(vehicle_id, start_date, end_date)
+		elif pricing_type == "weekly":
+			total_price = calculate_weekly_price(vehicle_id, start_date, end_date)
+
+		total_price = calculate_price_after_discount(total_price, discount_id)
+
+		values = (start_date, end_date, vehicle_id, employee_id, customer_id, discount_id, verified, total_price)
 
 		try:
 			cursor.execute(sql, values)

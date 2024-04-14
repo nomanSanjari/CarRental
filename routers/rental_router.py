@@ -49,6 +49,11 @@ async def get_all_rentals():
 	return controller.get_all_rentals()
 
 
+@router.get("/get_pending_rentals")
+async def get_pending_rentals():
+	return controller.get_pending_rentals()
+
+
 @router.put("/update_rental")
 async def update_rental(request: Dict):
 	rental_id = request["rental_id"]

@@ -40,6 +40,14 @@ class RentalController:
 
 		return cursor.fetchone()
 
+	def get_pending_rentals(self):
+		db = get_db_connection()
+		cursor = db.cursor(pymysql.cursors.DictCursor)
+		cursor.execute("SELECT * FROM Rental WHERE verified = 'false'")
+		results = cursor.fetchall()
+		db.close()
+		return results
+
 	def get_all_rentals(self):
 		db = get_db_connection()
 		cursor = db.cursor()

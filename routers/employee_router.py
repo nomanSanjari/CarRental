@@ -8,8 +8,8 @@ controller = EmployeeController()
 
 
 # CREATE
-@router.post("/employee")
-async def create_customer(request: Dict):
+@router.post("/create_employee")
+async def create_employee(request: Dict):
 	first_name = request["first_name"]
 	last_name = request["last_name"]
 	phone_number = request["phone_number"]
@@ -46,11 +46,7 @@ async def get_employee_by_id(request: Dict):
 		)
 
 
-@router.get("/get_pending_rentals")
-async def get_pending_rentals():
-	return controller.get_pending_rentals()
-
-@router.get("/get_all_employee")
+@router.get("/get_all_employees")
 async def get_all_employee():
 	return controller.get_all_employees()
 
@@ -75,7 +71,7 @@ async def update_employee(request: Dict):
 
 # DELETE
 @router.delete("/delete_employee")
-async def delete_customer(request: Dict):
+async def delete_employee(request: Dict):
 	employee_id = request["employee_id"]
 
 	if controller.delete_employee(employee_id):

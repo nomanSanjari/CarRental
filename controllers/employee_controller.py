@@ -38,13 +38,6 @@ class EmployeeController:
 		db.close()
 		return result
 
-	def get_pending_rentals(self):
-		db = get_db_connection()
-		cursor = db.cursor(pymysql.cursors.DictCursor)
-		cursor.execute("SELECT * FROM Rental WHERE verified = 'false'")
-		results = cursor.fetchall()
-		db.close()
-		return results
 
 	def update_employee(self, employee_id, **kwargs):
 		fields = ("first_name", "last_name", "phone_number", "email", "password")

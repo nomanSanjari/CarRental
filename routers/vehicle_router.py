@@ -73,22 +73,22 @@ async def get_vehicle_by_vin(request: Dict):
 
 @router.get("/search_vehicles")
 async def search_vehicles(request: Dict):
-	if request["is_available"]:
+	if request["is_available"] and request["is_available"] != "":
 		is_available = request["is_available"]
 	else:
 		is_available = None
 
-	if request["drive_train"]:
+	if request["drive_train"] and request["drive_train"] != "":
 		drive_train = request["drive_train"]
 	else:
 		drive_train = None
 
-	if request["vehicle_class"]:
+	if request["vehicle_class"] and request["vehicle_class"] != "":
 		vehicle_class = request["vehicle_class"]
 	else:
 		vehicle_class = None
 
-	if request["vehicle_type"]:
+	if request["vehicle_type"] and request["vehicle_type"] != "":
 		vehicle_type = request["vehicle_type"]
 	else:
 		vehicle_type = None

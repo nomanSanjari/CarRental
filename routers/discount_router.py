@@ -32,7 +32,9 @@ async def get_all_discounts():
 
 
 @router.get("/get_discount_by_id")
-async def get_discount_by_id(discount_id: int):
+async def get_discount_by_id(request: Dict):
+	discount_id = request["discount_id"]
+
 	result = controller.get_discount_by_id(discount_id)
 	if result:
 		return result
@@ -44,7 +46,10 @@ async def get_discount_by_id(discount_id: int):
 
 
 @router.put("/update_discount")
-async def update_discount(discount_id: int, request: Dict):
+async def update_discount(request: Dict):
+	discount_id = request["discount_id"]
+	updates = request["updates"]
+
 	result = controller.update_discount(discount_id, **request)
 	if result:
 		return Response(
@@ -59,7 +64,9 @@ async def update_discount(discount_id: int, request: Dict):
 
 
 @router.delete("/delete_discount")
-async def delete_discount(discount_id: int):
+async def delete_discount(request: Dict):
+	discount_id = request["discount_id"]
+
 	result = controller.delete_discount(discount_id)
 	if result:
 		return Response(

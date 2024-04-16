@@ -1,0 +1,81 @@
+.reservation-form {
+    background: #fff;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+  }
+  
+  .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    position: relative;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: .5em;
+  }
+  
+  .location-group img,
+  .datetime-group img {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px; /* Adjust size as needed */
+    height: 24px; /* Adjust size as needed */
+  }
+  
+  .location-group input,
+  .datetime-group input {
+    width: 100%;
+    padding: 10px 10px 10px 40px; /* Padding to make room for icon */
+    margin-right: 8px; /* Spacing between inputs */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .reservation-button {
+    background-color: #ffcc00; /* Match this color to your rectangle's background */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .reservation-button:hover {
+    background-color: darken(#ffcc00, 10%);
+  }
+  
+  /* Adjust this as necessary for responsive design */
+  @media (max-width: 768px) {
+    .datetime-group {
+      flex-direction: column;
+    }
+    .datetime-group input {
+      margin-bottom: 8px;
+    }
+  }
+
+  .select-car-type {
+    appearance: none; /* Remove default select dropdown styling */
+    background: url('../arrow.png') no-repeat right; /* Path to your arrow icon */
+    background-size: 0.75em; /* Size of the arrow */
+    border: 1px solid #ccc; /* Border color */
+    padding: 0.8em 3em 0.8em 0.8em; /* Adjust these padding values to match your design */
+    border-radius: 0.3em; /* Border radius */
+    font-size: 1em; /* Font size */
+    cursor: pointer; /* Cursor style */
+  }
+  
+  /* You may need to adjust the width to ensure it is consistent with the design */
+  .select-car-type {
+    width: 97%;
+  }
+  

@@ -1,0 +1,509 @@
+/* Overall font styling for the homepage */
+.home {
+  font-family: 'Arial', sans-serif;
+}
+
+/* Styling for the navigation bar */
+.navbar {
+  display: flex; /* Uses flexbox for layout */
+  justify-content: space-between; /* Spaces out navbar items */
+  align-items: center; /* Vertically centers items in the navbar */
+  padding: 10px 20px; /* Padding around the navbar */
+  background-color: #fff; /* White background color */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+/* Styling for the logo, which could be text or an image */
+.logo {
+  font-size: 24px; /* Sets the size of the logo text */
+  font-weight: bold; /* Makes the logo text bold */
+  color: #000; /* Sets the logo text color to black */
+  /* Additional styles would be needed if the logo is an image */
+}
+
+/* Container for navigation links, aligns items to the right of the navbar */
+.nav-links {
+  display: flex; /* Uses flexbox for layout */
+  margin-left: auto; /* Auto margin pushes the nav-links to the end of the navbar */
+  align-items: center; /* Centers links vertically */
+}
+
+/* Styling for each navigation link */
+.nav-links a {
+  text-decoration: none; /* Removes underline from links */
+  color: #000; /* Sets link text color to black */
+  padding: 0 15px; /* Padding on left and right of each link for spacing */
+  text-transform: uppercase; /* Makes all link text uppercase */
+  font-size: 14px; /* Sets the size of the link text */
+}
+
+
+/* Styling for the login button */
+.login-button {
+  background-color: #ffcc00; /* Theme color background */
+  border: none; /* No border for a flat design */
+  padding: 10px 20px; /* Padding inside the button */
+  cursor: pointer; /* Changes cursor to indicate it's clickable */
+  font-weight: bold; /* Bold text for prominence */
+  text-transform: uppercase; /* Uppercase text for stylistic consistency */
+  margin-left: auto; /* Auto margin pushes the button to the end of the navbar */
+}
+
+/* Hover effect for the login button */
+.login-button:hover {
+  background-color: #e6b800; /* Darkens the button color slightly on hover */
+}
+
+.promo-section {
+  background-color: #ffcc00; 
+  padding: 100px 0; /* Adjust the padding to fit  design */
+  position: relative; /* This allows absolute positioning inside */
+}
+/* Styling for the container that holds the reservation form and the car image */
+.reservation-and-car {
+  display: flex; /* Uses flexbox for a flexible and responsive layout */
+  justify-content: space-between; /* Spaces the child elements evenly */
+  align-items: center; /* Centers child elements vertically */
+  max-width: 900px; /* Sets a maximum width for the container */
+  margin: 0 auto; /* Centers the container horizontally on the page */
+  padding: 0 20px; /* Adds padding on the left and right sides */
+}
+
+/* Styling for the reservation form itself */
+.reservation-form {
+  background: #fff; /* Sets a white background for the form */
+  padding: 20px; /* Adds padding inside the form for spacing */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Adds a shadow for depth */
+  border-radius: 4px; /* Rounds the corners of the form */
+  width: 50%; /* Sets the form width to half of its parent container */
+
+}
+
+/* Styling for the car image next to the reservation form */
+.car-image {
+  width: 50%; /* Sets the image width to half of its parent container */
+  object-fit: contain; /* Ensures the image maintains its aspect ratio */
+}
+
+/* Styling for each group of form input and its associated icon */
+.form-group {
+  position: relative; /* Sets up a positioning context for absolute positioning inside */
+  margin-bottom: 15px; /* Adds bottom margin for spacing between form groups */
+}
+
+/* Styling for the icon inside each form group */
+.input-icon {
+  position: absolute; /* Positions the icon absolutely relative to its parent .form-group */
+  left: 10px; /* Positions the icon from the left */
+  top: 50%; /* Centers the icon vertically */
+  transform: translateY(-50%); /* Offsets the icon by half its height for perfect centering */
+  width: 20px; /* Width of the icon */
+  height: 20px; /* Height of the icon */
+}
+
+/* Styling for form controls (input, select, textarea) */
+.form-control {
+  padding-left: 40px; /* Adds padding to make room for the icon inside the input */
+  
+}
+
+/* HomePage.css styles for the customer services section */
+.customer-services {
+  background: #ffffff; /* White background for the section */
+  padding: 50px 0; /* Top and bottom padding */
+  text-align: center; /* Centers the text inside the section */
+}
+
+/* Subtitle styling beneath the main heading of the section */
+.subheading {
+  display: block; /* Ensures the element is block-level for proper spacing */
+  color: #333; /* Sets the text color to dark grey */
+  margin-bottom: 10px; /* Bottom margin for spacing before the highlight line */
+}
+
+/* Styling for the decorative highlight line beneath the subtitle */
+.highlight-line {
+  width: 50px; /* Sets the line width */
+  height: 4px; /* Sets the line height (thickness) */
+  background-color: #ffcc00; /* Sets the line color to match the theme */
+  margin: 0 auto; /* Centers the line horizontally */
+  margin-bottom: 30px; /* Bottom margin for spacing after the line */
+}
+
+
+/* CSS styles for the container of service boxes */
+.service-boxes {
+  display: flex; /* Uses flex display for a responsive layout */
+  flex-wrap: wrap; /* Allows service boxes to wrap onto the next line */
+  justify-content: space-around; /* Evenly spaces out the service boxes within the container */
+  margin: 0 auto; /* Centers the container in the page */
+  max-width: 1200px; /* Maximum width of the container to constrain content for readability */
+}
+
+/* Individual service box styling */
+.service-box {
+  background-color: #f5f5f5; /* Light grey background for each service box */
+  margin: 10px; /* Spacing between each service box */
+  padding: 20px; /* Padding inside each service box for spacing */
+  width: calc(45% - 0px); /* Width calculation to manage spacing; adjust margin value as necessary */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a subtle 3D effect */
+  border-radius: 4px; /* Rounded corners for a modern look */
+  text-align: left; /* Aligns the text to the left in each service box */
+}
+
+/* Responsive design adjustment for service boxes on smaller screens */
+@media (max-width: 768px) {
+  .service-box {
+    width: 100%; /* Each service box takes full width of the screen */
+    margin-bottom: 20px; /* Adds more space between boxes when stacked */
+  }
+}
+
+/* Style for the main title of the customer services section */
+.customer-services h2 {
+  font-size: 2em; /* Larger font size for the title for emphasis */
+  margin-bottom: 0.25em; /* Space below the title before the next element */
+}
+
+/* Additional styles for elements within service boxes such as titles, icons, and text */
+.service-box h3 {
+  color: #333; /* Dark grey text color for the title within the box */
+}
+
+/* Icon styling within the service box */
+.service-box img {
+  width: 75px; /* Sets a fixed width for icons to make them smaller */
+  height: auto; /* Maintains the aspect ratio of the icons */
+  margin-bottom: 0.5em; /* Space below the icon before the title */
+}
+
+/* Paragraph text styling within the service box */
+.service-box p {
+  color: #666; /* Light grey text color for readability and design */
+}
+
+/* Testimonials section title styling */
+.testimonials-title {
+  font-size: 2.0em; /* Sets the size of the title text */
+  text-align: center; /* Centers the title text within its container */
+  margin-bottom: 0.5em; /* Space between the title and the decorative rectangle */
+}
+
+/* Decorative rectangle beneath the testimonials title */
+.testimonials-rectangle {
+  height: 4px; /* Thickness of the rectangle */
+  background-color: #ffcc00; /* Color of the rectangle to match the theme */
+  width: 70px; /* Length of the rectangle */
+  margin: 0 auto; /* Centers the rectangle horizontally */
+}
+
+/* General styling for the testimonials section */
+.testimonial-section {
+  background: #ffffff; /* Sets a white background color for contrast */
+  text-align: center; /* Centers all text within the section */
+  padding: 50px 0; /* Top and bottom padding inside the section */
+}
+
+/* Individual testimonial container styling */
+.testimonial-container {
+  max-width: 800px; /* Maximum width to contain the testimonial text */
+  margin: 0 auto; /* Centers the testimonial containers */
+  padding: 20px; /* Padding inside each container for spacing */
+}
+
+
+
+/* Customizes the color of navigation dots provided by Slick Carousel for all states */
+.slick-dots li button:before {
+  color: #ffcc00; /* Sets the color of the non-active navigation dots to match the theme */
+}
+
+/* Customizes the color of navigation dots provided by Slick Carousel for the active state */
+.slick-dots li.slick-active button:before {
+  color: #ffcc00; /* Sets the color of the active navigation dot to highlight the current slide */
+}
+
+/* Aligns the stars horizontally in the testimonials section and centers them */
+.testimonial-stars {
+  display: flex; /* Uses flexbox to layout stars in a row */
+  justify-content: center; /* Centers stars horizontally in their container */
+  align-items: center; /* Vertically centers the stars in their container */
+  margin-bottom: 1em; /* Adds space below the stars before the testimonial text */
+}
+
+/* Styles for individual star icons in the testimonials section */
+.star {
+  width: 20px; /* Sets a specific width for star icons */
+  height: auto; /* Ensures the height scales proportionally to the width */
+  margin-right: 4px; /* Adds space between each star icon */
+}
+
+/* Styles for the blockquote element wrapping the testimonial text */
+.testimonial-container blockquote {
+  font-style: italic; /* Italicizes the testimonial text */
+  color: #333; /* Sets a dark color for text to ensure readability */
+  padding: 0 20px; /* Adds padding to the left and right of the testimonial text */
+}
+
+/* Styles for the testimonial author's name */
+.testimonial-author {
+  font-weight: bold; /* Makes the author's name bold */
+}
+
+/* Enables smooth scrolling behavior for anchor links across the entire website */
+html {
+  scroll-behavior: smooth; /* Smooth scrolls to sections rather than jumping */
+}
+
+/* Styles for the About section of the page */
+.about-section {
+  display: flex; /* Uses flexbox to layout the content */
+  align-items: center; /* Centers the items vertically */
+  padding: 50px; /* Adds padding around the entire About section */
+  background: #ffffff; /* Sets a white background for the About section */
+}
+
+/* Layout for the About section content */
+.about-content {
+  display: flex; /* Uses flexbox to layout the image and details */
+  align-items: center; /* Centers the content vertically */
+  justify-content: space-between; /* Spaces out the image and details within the container */
+}
+
+/* Styles for the image in the About section */
+.about-image {
+  width: 200px; /* Sets the width for the about image */
+  margin-right: 50px; /* Adds space to the right of the image */
+}
+
+/* Styles for the details in the About section */
+.about-details {
+  text-align: left; /* Aligns the text to the left in the details section */
+}
+
+/* Styles for the decorative highlight underneath the section title */
+.about-highlight {
+  width: 50px; /* Width of the highlight line */
+  height: 5px; /* Height of the highlight line */
+  background-color: #ffcc00; /* Color of the highlight line */
+  margin-bottom: 15px; /* Space below the highlight line */
+}
+
+/* Styles for the statistics displayed in the About section */
+.about-stats {
+  display: flex; /* Uses flexbox to layout stat items in a row */
+  margin-top: 20px; /* Adds space above the stats */
+}
+
+/* Styles for individual statistic items */
+.stat-item {
+  margin-right: 20px; /* Adds space to the right of each stat item */
+  text-align: center; /* Centers the text of each stat item */
+}
+
+/* Styles for the icons representing each statistic */
+.stat-icon {
+  font-size: 2em; /* Sets the size of the stat icons */
+}
+
+/* Styles for the numbers in each statistic */
+.stat-number {
+  font-size: 2em; /* Sets the size of the stat numbers */
+  color: #333; /* Dark text color for the numbers for emphasis */
+}
+
+/* Styles for the labels beneath each statistic */
+.stat-label {
+  color: #777; /* Grey color for the stat labels */
+}
+
+/* Responsive design styles for the About section on smaller screens */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column; /* Stacks the image and details vertically */
+    text-align: center; /* Centers the text for a stacked layout */
+  }
+
+  .about-image {
+    margin-bottom: 20px; /* Adds space below the image when stacked */
+  }
+
+  .about-details {
+    text-align: center; /* Ensures details text is centered in a stacked layout */
+  }
+
+  .about-stats {
+    justify-content: center; /* Centers the stats in the container */
+  }
+
+  .stat-item {
+    margin-right: 10px; /* Reduces the space to the right of each stat item */
+  }
+}
+
+
+/* Sets up the about section with flexible alignment, centered content, and a white background */
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the items horizontally */
+  padding: 50px 10%; /* Add padding to the top, bottom, and 10% to left/right for spacing */
+  background: #ffffff; /* Set a white background color for the about section */
+}
+
+/* Defines the style and size for the image in the about section */
+.about-image {
+  width: 300px; /* Define the width of the image */
+}
+
+/* Adjusts the content details within the about section, including max-width and margin */
+.about-details {
+  max-width: 600px; /* Set a maximum width for the content for better readability */
+  margin-left: 5px; /* Add a small margin to the left of the content */
+}
+
+
+
+/* Highlights the title in the about section with a colored rectangle */
+.about-highlight {
+  width: 50px; /* Set the width for the highlight line */
+  height: 5px; /* Set the height/thickness for the highlight line */
+  background-color: #ffcc00; /* Use a brand color for the highlight line */
+  margin: 10px 0; /* Add vertical margin for spacing around the highlight */
+}
+
+/* Media query for responsive design on smaller screens */
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column; /* Stack the items vertically */
+    text-align: center; /* Center align the text for a stacked layout */
+  }
+
+  .about-image {
+    margin-bottom: 20px; /* Add space below the image when stacked */
+  }
+
+  .about-details {
+    margin-left: 0; /* Remove the left margin since the text is now centered */
+  }
+}
+
+/* Contact section header styles, ensuring proper positioning and display */
+.contact-header {
+  text-align: center; /* Center align the contact section header */
+  position: relative; /* Needed for absolute positioning of children if used */
+  display: inline-block; /* Display header as an inline-block for content width */
+  margin-bottom: 1em; /* Add space below the contact section header */
+}
+
+/* Defines the style for the contact title, including font size and display */
+.contact-title {
+  font-size: 2.0em; /* Set the font size for the contact title */
+  display: block; /* Display the contact title as a block-level element */
+  margin-bottom: 0.5em; /* Add space below the title for the underline */
+}
+
+/* Styles the underline for the contact title */
+.contact-title-underline {
+  width: 70px; /* Set the width for the rectangle/underline */
+  height: 4px; /* Set the height/thickness for the rectangle/underline */
+  background-color: #ffcc00; /* Color the rectangle/underline with a theme color */
+  margin: 0 auto; /* Center the rectangle/underline horizontally */
+}
+
+/* Sets up the contact form section with centered text and a white background */
+.contact-section {
+  text-align: center; /* Center all content within the contact section */
+  padding: 50px 0; /* Add padding above and below the contact section */
+  background: #ffffff; /* Set the background color to white */
+}
+
+/* Styles the contact form and its inputs */
+.contact-form {
+  max-width: 600px; /* Define the maximum width for the form */
+  margin: 20px auto; /* Center the form horizontally with auto margins */
+}
+
+/* Sets up the layout for the rows in the form */
+.input-row {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space out the inputs evenly */
+  margin-bottom: 15px; /* Add space below each row */
+}
+
+/* Styles the text inputs and textarea within the contact form */
+.contact-form input[type="text"],
+.contact-form input[type="tel"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 48%; /* Each input takes up just under half the width of the form */
+  padding: 10px; /* Add padding inside the inputs for better readability */
+  border: 1px solid #ccc; /* Add a border with a light grey color */
+  background: #f9f9f9; /* Set the background color of the inputs to a light grey */
+  color: #999; /* Set the text color of the placeholder text to a light grey */
+}
+
+/* Adjusts the style and dimensions of the textarea specifically */
+.contact-form textarea {
+  width: 100%; /* The message box takes the full width of the form */
+  height: 120px; /* Define a fixed height for the message box */
+  margin-bottom: 15px; /* Add space below the message box */
+}
+
+
+
+
+/* Styles for the submit button in the contact form */
+.submit-button {
+  background-color: #ffcc00; /* Set the button color to the brand's yellow */
+  border: none; /* Remove any border from the button */
+  padding: 10px 20px; /* Add padding to size the button */
+  color: #ffffff; /* Set the text color to white */
+  cursor: pointer; /* Change cursor to pointer to indicate button */
+  transition: background-color 0.3s ease; /* Smooth color transition for hover effect */
+}
+
+/* Change button color when hovered to a darker yellow */
+.submit-button:hover {
+  background-color: darken(#ffcc00, 10%); /* Function darken will make color 10% darker */
+}
+
+/* Responsive design adjustments for smaller screens */
+@media (max-width: 768px) {
+  .input-row {
+    flex-direction: column; /* Stack input fields vertically */
+  }
+  
+  /* Make input fields and textarea take full width on smaller screens */
+  .contact-form input[type="text"],
+  .contact-form input[type="tel"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    width: 100%; /* Set width to full container width */
+  }
+}
+
+/* HomePage.css - Styles for the footer */
+.site-footer {
+  background-color: #b3b2b2; /* Set the background color to a light grey */
+  color: #333; /* Set the text color to a dark grey for contrast */
+  text-align: center; /* Center the text within the footer */
+  padding: 10px 0; /* Add padding above and below the text */
+  font-size: 0.9em; /* Set a smaller font size for the footer text */
+  position: relative; /* Prepare for potential positioning adjustments */
+  bottom: 0; /* Align to the bottom of its container if needed */
+  width: 100%; /* Ensure the footer extends full width of the screen */
+}
+
+/* Ensure the footer content doesn't exceed a max width */
+.site-footer p {
+  margin: 0 auto; /* Center the paragraph element if needed */
+  padding: 0 15px; /* Add padding on smaller screens for spacing */
+}
+
+/* Adjust the font size of the footer on smaller screens */
+@media (max-width: 768px) {
+  .site-footer {
+    font-size: 0.8em; /* Reduce the font size for small screen readability */
+  }
+}

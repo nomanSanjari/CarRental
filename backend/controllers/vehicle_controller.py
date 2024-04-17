@@ -4,11 +4,11 @@ from utils.hasher import hash_password
 
 
 class VehicleController():
-	def create_vehicle(self, vin, make, model, vehicle_class, weekly_rate, daily_rate, odometer_reading, drive_train, is_available):
+	def create_vehicle(self, vin, make, model, vehicle_class, vehicle_type, weekly_rate, daily_rate, odometer_reading, drive_train, is_available):
 		db = get_db_connection()
 		cursor = db.cursor()
-		sql = """INSERT INTO Vehicle (vin, make, model, vehicle_class, weekly_rate, daily_rate, odometer_reading, drive_train, is_available) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"""
-		values = (vin, make, model, vehicle_class, weekly_rate, daily_rate, odometer_reading, drive_train, is_available)
+		sql = """INSERT INTO Vehicle (vin, make, model, vehicle_class, vehicle_type, weekly_rate, daily_rate, odometer_reading, drive_train, is_available) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+		values = (vin, make, model, vehicle_class, vehicle_type, weekly_rate, daily_rate, odometer_reading, drive_train, is_available)
 		try:
 			cursor.execute(sql, values)
 			db.commit()
@@ -40,7 +40,8 @@ class VehicleController():
 		cursor.execute("SELECT * FROM Vehicle WHERE vin = %s", (vin,))
 		result = cursor.fetchone()
 		db.close()
-		return
+
+		return result
 
 	def search_vehicles(self, is_available, drive_train, vehicle_class, vehicle_type):
 		db = get_db_connection()

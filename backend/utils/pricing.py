@@ -1,8 +1,12 @@
 from db_connection import get_db_connection
+from datetime import datetime, date
 import pymysql.err
 
 
-async def calculate_weekly_price(vehicle_id, start_date, end_date):
+def calculate_weekly_price(vehicle_id, start_date, end_date):
+	start_date = datetime.strptime(start_date, '%Y-%m-%d').date()
+	end_date = datetime.strptime(end_date, '%Y-%m-%d').date()
+
 	db = get_db_connection()
 	cursor = db.cursor()
 	sql = """SELECT weekly_rate FROM Vehicle WHERE id = %s"""
@@ -23,7 +27,10 @@ async def calculate_weekly_price(vehicle_id, start_date, end_date):
 	return weeks * weekly_rate + remainder_days * (weekly_rate / 7)
 
 
-async def calculate_daily_price(vehicle_id, start_date, end_date):
+def calculate_daily_price(vehicle_id, start_date, end_date):
+	start_date = datetime.strptime(start_date, '%Y-%m-%d').date()
+	end_date = datetime.strptime(end_date, '%Y-%m-%d').date()
+
 	db = get_db_connection()
 	cursor = db.cursor()
 	sql = """SELECT daily_rate FROM Vehicle WHERE id = %s"""
@@ -42,7 +49,7 @@ async def calculate_daily_price(vehicle_id, start_date, end_date):
 	return days * daily_rate
 
 
-async def calculate_price_after_discount(price_before_discount, discount_id):
+def calculate_price_after_discount(price_before_discount, discount_id):
 	db = get_db_connection()
 	cursor = db.cursor()
 	sql = """SELECT discount_percentage FROM Discount WHERE id = %s"""
@@ -53,7 +60,7 @@ async def calculate_price_after_discount(price_before_discount, discount_id):
 	db.close()
 
 	if not result:
-		return None
+		return price_before_discount
 
 	discount_percentage = result[0]
 	discounted_amount = price_before_discount * discount_percentage / 100

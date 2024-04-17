@@ -12,12 +12,11 @@ async def create_rental(request: Dict):
 	start_date = request["start_date"]
 	end_date = request["end_date"]
 	vehicle_id = request["vehicle_id"]
-	employee_id = request["employee_id"]
 	customer_id = request["customer_id"]
 	discount_id = request["discount_id"]
 	pricing_type = request["pricing_type"]
 
-	if controller.create_rental(start_date, end_date, vehicle_id, employee_id, customer_id, discount_id, pricing_type):
+	if controller.create_rental(start_date, end_date, vehicle_id, customer_id, discount_id, pricing_type):
 		return JSONResponse(
 			status_code=status.HTTP_201_CREATED,
 			content={"message": "Rental created successfully"}

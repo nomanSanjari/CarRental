@@ -16,7 +16,7 @@ async def create_discount(request: Dict):
 
 	result = controller.create_discount(discount_type, discount_amount)
 
-	if result:
+	if result is not None:
 		return JSONResponse(
 			status_code=status.HTTP_201_CREATED,
 			content=result
@@ -31,20 +31,29 @@ async def create_discount(request: Dict):
 @router.get("/get_all_discounts")
 async def get_all_discounts():
 	results = controller.get_all_discounts()
-	return results
+
+	if results is not None:
+		return JSONResponse(
+			status_code=status.HTTP_200_OK,
+			content=results
+		)
+	else:
+		return HTTPException(
+			status_code=status.HTTP_404_NOT_FOUND,
+			detail=results
+		)
 
 
 @router.get("/get_discount_by_id")
 async def get_discount_by_id(request: Dict):
 	discount_id = request["discount_id"]
-
 	result = controller.get_discount_by_id(discount_id)
-	if result:
+
+	if result is not None:
 		return result
 	else:
 		return HTTPException(
 			status_code=status.HTTP_404_NOT_FOUND,
-			detail="Discount not found"
 		)
 
 
@@ -53,11 +62,12 @@ async def update_discount(request: Dict):
 	discount_id = request["discount_id"]
 	updates = request["updates"]
 
-	result = controller.update_discount(discount_id, **request)
+	result = controller.update_discount(discount_id, **updates)
+
 	if result:
 		return Response(
 			status_code=status.HTTP_200_OK,
-			content=result
+			content="Discount updated successfully"
 		)
 	else:
 		return HTTPException(
@@ -74,7 +84,7 @@ async def delete_discount(request: Dict):
 	if result:
 		return Response(
 			status_code=status.HTTP_200_OK,
-			content=result
+			content="Discount deleted successfully"
 		)
 	else:
 		return HTTPException(

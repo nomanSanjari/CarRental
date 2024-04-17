@@ -14,13 +14,14 @@ async def create_vehicle(request: Dict):
 	make = request["make"]
 	model = request["model"]
 	vehicle_class = request["vehicle_class"]
+	vehicle_type = request["vehicle_type"]
 	weekly_rate = request["weekly_rate"]
 	daily_rate = request["daily_rate"]
 	odometer_reading = request["odometer_reading"]
 	drive_train = request["drive_train"]
 	is_available = request["is_available"]
 
-	if controller.create_vehicle(vin, make, model, vehicle_class, weekly_rate, daily_rate, odometer_reading, drive_train, is_available):
+	if controller.create_vehicle(vin, make, model, vehicle_class, vehicle_type, weekly_rate, daily_rate, odometer_reading, drive_train, is_available):
 		return JSONResponse(
 			status_code=status.HTTP_201_CREATED,
 			content={"message": "Vehicle created successfully"}
@@ -43,6 +44,10 @@ async def get_vehicle_by_id(request: Dict):
 	vehicle_id = request["vehicle_id"]
 	result = controller.get_vehicle_by_id(vehicle_id)
 
+	result["daily_rate"] = str(result["daily_rate"])
+	result["weekly_rate"] = str(result["weekly_rate"])
+	result["odometer_reading"] = str(result["odometer_reading"])
+
 	if result:
 		return JSONResponse(
 			status_code=status.HTTP_200_OK,
@@ -59,6 +64,10 @@ async def get_vehicle_by_id(request: Dict):
 async def get_vehicle_by_vin(request: Dict):
 	vin = request["vin"]
 	result = controller.get_vehicle_by_vin(vin)
+
+	result["daily_rate"] = str(result["daily_rate"])
+	result["weekly_rate"] = str(result["weekly_rate"])
+	result["odometer_reading"] = str(result["odometer_reading"])
 
 	if result:
 		return JSONResponse(

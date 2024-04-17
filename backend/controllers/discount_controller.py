@@ -1,3 +1,5 @@
+from types import NoneType
+
 from db_connection import get_db_connection
 import pymysql.err
 
@@ -8,6 +10,7 @@ class DiscountController:
 		cursor = db.cursor()
 		sql = """INSERT INTO Discount (discount_type, discount_percentage) VALUES (%s, %s)"""
 		values = (discount_type, discount_percentage)
+
 		try:
 			cursor.execute(sql, values)
 			db.commit()
@@ -19,7 +22,6 @@ class DiscountController:
 			return cursor.fetchone()
 
 		except pymysql.err.IntegrityError as e:
-			print(f"Error creating discount: {e}")
 			db.rollback()
 			return None
 
@@ -29,7 +31,11 @@ class DiscountController:
 		cursor.execute("SELECT * FROM Discount")
 		results = cursor.fetchall()
 		db.close()
-		return results
+
+		if len(results) > 0:
+			return results
+		else:
+			return None
 
 	def get_discount_by_id(self, discount_id):
 		db = get_db_connection()
@@ -37,7 +43,11 @@ class DiscountController:
 		cursor.execute("SELECT * FROM Discount WHERE id = %s", (discount_id,))
 		result = cursor.fetchone()
 		db.close()
-		return result
+
+		if type(result) is not NoneType:
+			return result
+		else:
+			return None
 
 	def update_discount(self, discount_id, **kwargs):
 		fields = ("discount_type", "discount_percentage")
@@ -56,7 +66,6 @@ class DiscountController:
 			db.commit()
 			return True
 		except pymysql.err.IntegrityError as e:
-			print(f"Error updating discount: {e}")
 			db.rollback()
 			return False
 

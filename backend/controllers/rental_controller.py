@@ -5,12 +5,17 @@ import pymysql.err
 
 
 class RentalController:
-	def create_rental(self, start_date, end_date, vehicle_id, employee_id, customer_id, discount_id, pricing_type):
+	def create_rental(self, start_date, end_date, vehicle_id, customer_id, discount_id, pricing_type):
+		if discount_id is None:
+			discount_id = None
+		if discount_id == "":
+			discount_id = None
+
 		db = get_db_connection()
 		cursor = db.cursor()
-		sql = """INSERT INTO Rental (start_date, end_date, vehicle_id, employee_id, customer_id, discount_id, verified, total_price) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"""
+		sql = """INSERT INTO Rental (start_date, end_date, vehicle_id, customer_id, discount_id, verified, total_price) VALUES (%s, %s, %s, %s, %s, %s, %s)"""
 
-		verified = bool("false")
+		verified = 0
 		total_price = 0
 
 		if pricing_type == "daily":
@@ -20,7 +25,7 @@ class RentalController:
 
 		total_price = calculate_price_after_discount(total_price, discount_id)
 
-		values = (start_date, end_date, vehicle_id, employee_id, customer_id, discount_id, verified, total_price)
+		values = (start_date, end_date, vehicle_id, customer_id, discount_id, verified, total_price)
 
 		try:
 			cursor.execute(sql, values)
@@ -44,7 +49,7 @@ class RentalController:
 	def get_pending_rentals(self):
 		db = get_db_connection()
 		cursor = db.cursor(pymysql.cursors.DictCursor)
-		cursor.execute("SELECT * FROM Rental WHERE verified = 'false'")
+		cursor.execute("SELECT * FROM Rental WHERE verified = 0")
 		results = cursor.fetchall()
 		db.close()
 		return results

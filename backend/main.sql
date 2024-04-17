@@ -45,23 +45,20 @@ CREATE TABLE Rental (
     start_date DATE NOT NULL,
     end_date DATE NOT NULL,
     vehicle_id INT NOT NULL,  
-    employee_id INT NOT NULL, 
     customer_id INT NOT NULL,
-    discount_id INT NOT NULL,
+    discount_id INT NULL,
     
     total_price INT NOT NULL,
-    verified BOOLEAN DEFAULT FALSE,
+    verified INT DEFAULT(0),
     
-    FOREIGN KEY (vehicle_id) REFERENCES Vehicle (id),
-    FOREIGN KEY (employee_id) REFERENCES Employee (id),
-    FOREIGN KEY (customer_id) REFERENCES Customer (id),
-    FOREIGN KEY (discount_id) REFERENCES Discount (id)
+    FOREIGN KEY (vehicle_id) REFERENCES Vehicle (id) ON DELETE CASCADE,
+    FOREIGN KEY (customer_id) REFERENCES Customer (id) ON DELETE CASCADE
 );
 
 CREATE TABLE Discount (
 	id INT PRIMARY KEY AUTO_INCREMENT,
     discount_type ENUM ('Corporate', 'Employee', 'Customer'),
-    discount_percentage int
+    discount_percentage INT
 );
 
 SET FOREIGN_KEY_CHECKS = 1;

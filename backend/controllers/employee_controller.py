@@ -38,7 +38,6 @@ class EmployeeController:
 		db.close()
 		return result
 
-
 	def update_employee(self, employee_id, **kwargs):
 		fields = ("first_name", "last_name", "phone_number", "email", "password")
 		updates = [f"{field} = %s" for field in kwargs.keys() if field in fields]
@@ -65,7 +64,7 @@ class EmployeeController:
 	def delete_employee(self, employee_id):
 		db = get_db_connection()
 		cursor = db.cursor()
-		sql = "DELETE FROM Customer WHERE id = %s"
+		sql = "DELETE FROM Employee WHERE id = %s"
 		try:
 			cursor.execute(sql, (employee_id,))
 			db.commit()
@@ -73,5 +72,3 @@ class EmployeeController:
 		except pymysql.err.Error as e:
 			db.rollback()
 			return False
-
-

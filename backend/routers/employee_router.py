@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse
 from typing import Dict
 from controllers.employee_controller import EmployeeController
 
-router = APIRouter(prefix="/employee", tags=["employee"])
+router = APIRouter(prefix="/employees", tags=["employee"])
 controller = EmployeeController()
 
 
@@ -57,7 +57,9 @@ async def update_employee(request: Dict):
 	employee_id = request["employee_id"]
 	updates = request["updates"]
 
-	if controller.update_employee(employee_id, **updates):
+	result = controller.update_employee(employee_id, **updates)
+
+	if result:
 		return JSONResponse(
 			status_code=status.HTTP_200_OK,
 			content={"message": "Employee updated successfully"}

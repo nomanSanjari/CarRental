@@ -11,7 +11,8 @@
 
 * **backend/**: Contains the Python source code for the FastAPI application.
     * **requirements.txt**: A list of required Python packages. 
-    * **main.py** (or similar): Your main FastAPI application file.
+    * **main.py**: Your main FastAPI application file.
+    * **db_connection.py**: Singleton database connector implementation for database read/write operations.
     * **routers/**: Directory containing API route definitions.
     * **controllers/**: Directory containing API controller definitions.
     * **utils/**: Directory containing helper functions and modules.
@@ -19,7 +20,12 @@
     * **main.sql**: The primary SQL file defining your database structure.
     * **database_dump.sql**: A database dump, possibly to provide initial data.
 * **postman/**: Contains Postman collections.
-    * **request_examples.json** (or similar): A Postman collection with sample request bodies.
+    * **auth.json**: A Postman collection with sample request bodies for auth endpoints.
+    * **customer.json**: A Postman collection with sample request bodies for customer endpoints.
+    * **discount.json**: A Postman collection with sample request bodies for discount endpoints.
+    * **employee.json**: A Postman collection with sample request bodies for employee endpoints.
+    * **rental.json**: A Postman collection with sample request bodies for rental endpoints.
+    * **vehicle.json**: A Postman collection with sample request bodies for vehicle endpoints.
 
 **Setup Instructions:**
 

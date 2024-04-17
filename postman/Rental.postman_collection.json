@@ -1,0 +1,259 @@
+{
+	"info": {
+		"_postman_id": "b56d7b65-ff0f-4660-bd8d-9f43d96aa85f",
+		"name": "Rental",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14963675"
+	},
+	"item": [
+		{
+			"name": "create_rental",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"start_date\": \"2023-12-20\",\r\n    \"end_date\": \"2023-12-23\",\r\n    \"vehicle_id\": \"2\",\r\n    \"customer_id\": \"1\",\r\n    \"discount_id\": \"\",\r\n    \"pricing_type\": \"daily\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/rentals/create_rental",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"rentals",
+						"create_rental"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_all_rentals",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/rentals/get_all_rentals",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"rentals",
+						"get_all_rentals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_rental_by_id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rental_id\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/rentals/get_rental_by_id",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"rentals",
+						"get_rental_by_id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_pending_rentals",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/rentals/get_pending_rentals",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"rentals",
+						"get_pending_rentals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "accept_rental",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rental_id\": \"5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/rentals/accept_rental",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"rentals",
+						"accept_rental"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reject_rental",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rental_id\": \"5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/rentals/reject_rental",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"rentals",
+						"reject_rental"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_rental",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rental_id\": \"1\",\r\n    \"updates\": {\r\n        \"vehicle_id\": \"3\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/rentals/update_rental",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"rentals",
+						"update_rental"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_rental",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rental_id\": \"4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/rentals/delete_rental",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"rentals",
+						"delete_rental"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

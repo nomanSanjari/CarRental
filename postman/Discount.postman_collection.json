@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "d94333be-27c2-4da2-83c0-09d9a62cf7f3",
+		"name": "Discount",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14963675"
+	},
+	"item": [
+		{
+			"name": "create_discount",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"discount_type\": \"Corporate\",\r\n    \"discount_amount\": \"50\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/discounts/create_discount",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"discounts",
+						"create_discount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_all_discounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/discounts/get_all_discounts",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"discounts",
+						"get_all_discounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_discount_by_id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"discount_id\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/discounts/get_discount_by_id",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"discounts",
+						"get_discount_by_id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_discount",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"discount_id\": \"1\",\r\n    \"updates\": {\r\n        \"discount_percentage\": \"70\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/discounts/update_discount",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"discounts",
+						"update_discount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_discount",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"discount_id\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/discounts/delete_discount",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"discounts",
+						"delete_discount"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

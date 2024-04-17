@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "e164270b-9084-495e-a052-ee5974d46243",
+		"name": "Employee",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14963675"
+	},
+	"item": [
+		{
+			"name": "create_employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Regular\",\r\n    \"last_name\": \"Employee\",\r\n    \"phone_number\": \"123-456-7890\",\r\n    \"email\": \"employee@cars.com\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/employees/create_employee",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"employees",
+						"create_employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_all_employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/employees/get_all_employees",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"employees",
+						"get_all_employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_employee_by_id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"employee_id\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/employees/get_employee_by_id",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"employees",
+						"get_employee_by_id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_employee",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"employee_id\": \"1\",\r\n    \"updates\": {\r\n        \"email\": \"peepeepoopoo@cars.com\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/employees/update_employee",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"employees",
+						"update_employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_employee",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"employee_id\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/employees/delete_employee",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"employees",
+						"delete_employee"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

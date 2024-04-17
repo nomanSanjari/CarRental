@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "cf47257e-bf62-4878-884e-085b93b1b2fd",
+		"name": "Customer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14963675"
+	},
+	"item": [
+		{
+			"name": "create_customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Other Regular\",\r\n    \"last_name\": \"Customer\",\r\n    \"phone_number\": \"123-456-7890\",\r\n    \"email\": \"customer1@cars.com\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/customers/create_customer",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"customers",
+						"create_customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_all_customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/customers/get_all_customers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"customers",
+						"get_all_customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_customer_by_id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer_id\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/customers/get_customer_by_id",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"customers",
+						"get_customer_by_id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_customer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer_id\": \"1\",\r\n    \"updates\": {\r\n        \"email\": \"peepeepoopoo@cars.com\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/customers/update_customer",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"customers",
+						"update_customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_customer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer_id\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/customers/delete_customer",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"customers",
+						"delete_customer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

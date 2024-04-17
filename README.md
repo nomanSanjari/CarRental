@@ -25,4 +25,7 @@
 1. **Clone/Download the Project:** Obtain the project files from a repository (e.g., Git) or download them directly.
 2. **Change Directory:** Open a terminal and navigate to the 'backend' folder of your project:
    ```bash
-   cd backend 
+   cd backend
+   pip install -r requirements.txt
+   uvicorn main:app --reload
+   ```

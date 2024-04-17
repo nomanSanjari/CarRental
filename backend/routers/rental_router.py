@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException, status
 from fastapi.responses import JSONResponse
+from starlette.requests import Request
 from typing import Dict
 from controllers.rental_controller import RentalController
 
@@ -57,23 +58,45 @@ async def get_all_rentals():
 async def get_pending_rentals():
 	return controller.get_pending_rentals()
 
+
 @router.put('/accept_rental')
-async def accept_rental(request: Dict):
+async def accept_rental(request: Request):
+	employee = False
+
+	if 'Type' in request.cookies and request.cookies['Type'] == 'employee':
+		employee = True
+
+	request = await request.json()
 	rental_id = request["rental_id"]
-	if controller.accept_rental(rental_id):
-		return JSONResponse(
-			status_code=status.HTTP_200_OK,
-			content={"message": "Rental verified successfully"}
-		)
+
+	if employee:
+		if controller.accept_rental(rental_id):
+			return JSONResponse(
+				status_code=status.HTTP_200_OK,
+				content={"message": "Rental verified successfully"}
+			)
+		else:
+			return HTTPException(
+				status_code=status.HTTP_400_BAD_REQUEST,
+				detail="Error verifying rental"
+			)
 	else:
 		return HTTPException(
-			status_code=status.HTTP_400_BAD_REQUEST,
-			detail="Error verifying rental"
-		)
+			status_code=status.HTTP_401_UNAUTHORIZED,
+			detail="Unauthorized"
+	)
+
 
 @router.put('/reject_rental')
-async def reject_rental(request: Dict):
+async def reject_rental(request: Request):
+	employee = False
+
+	if 'Type' in request.cookies and request.cookies['Type'] == 'employee':
+		employee = True
+
+	request = await request.json()
 	rental_id = request["rental_id"]
+
 	if controller.reject_rental(rental_id):
 		return JSONResponse(
 			status_code=status.HTTP_200_OK,

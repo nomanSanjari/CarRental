@@ -13,8 +13,6 @@ app.include_router(auth_router.router, prefix="/api")
 
 @app.get("/")
 async def root():
-	await send_acceptance_email("saif.abuhajleh@ucalgary.ca", "Rental Accepted", "Your rental has been accepted")
-
 	return {
 		"message": "Hello World"
 	}

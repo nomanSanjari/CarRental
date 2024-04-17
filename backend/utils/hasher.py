@@ -1,9 +1,12 @@
 import bcrypt
 
 
-async def hash_password(plain_text_password):
-    password_bytes = plain_text_password.encode('utf-8')
-    salt = bcrypt.gensalt()
-    password_hash = bcrypt.hashpw(password_bytes, salt)
+def hash_password(plain_text_password):
+	salt = bcrypt.gensalt()
+	hashed_password = bcrypt.hashpw(plain_text_password.encode('utf-8'), salt)
+	return hashed_password.decode('utf-8')  # Return as a string
 
-    return password_hash.decode('utf-8')
+
+def verify_password(plain_text_password, stored_hash):
+	result = bcrypt.checkpw(plain_text_password.encode('utf-8'), stored_hash.encode('utf-8'))
+	return result

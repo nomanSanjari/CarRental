@@ -11,7 +11,13 @@ class DiscountController:
 		try:
 			cursor.execute(sql, values)
 			db.commit()
-			return cursor.lastrowid
+
+			last_inserted_id = cursor.lastrowid
+			fetch_sql = """SELECT * FROM Discount WHERE id = %s"""
+			cursor.execute(fetch_sql, (last_inserted_id,))
+
+			return cursor.fetchone()
+
 		except pymysql.err.IntegrityError as e:
 			print(f"Error creating discount: {e}")
 			db.rollback()

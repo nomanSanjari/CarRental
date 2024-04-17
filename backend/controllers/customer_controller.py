@@ -1,12 +1,11 @@
 from db_connection import get_db_connection
 import pymysql.err
 from utils.hasher import hash_password
-
+import bcrypt
 
 class CustomerController:
 	def create_customer(self, first_name, last_name, phone_number, email, password):
 		password = hash_password(password)
-
 		db = get_db_connection()
 		cursor = db.cursor(pymysql.cursors.DictCursor)
 		sql = """

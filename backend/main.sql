@@ -37,7 +37,7 @@ CREATE TABLE Vehicle (
     daily_rate DECIMAL(10,2) NOT NULL,
     odometer_reading INT,                 
     drive_train ENUM ('FWD', 'RWD', 'AWD'), 		
-    is_available BOOLEAN DEFAULT TRUE    
+    is_available INT    
 ); 
 
 CREATE TABLE Rental (

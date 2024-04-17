@@ -33,6 +33,9 @@ async def get_rental_by_id(request: Dict):
 	rental_id = request["rental_id"]
 	result = controller.get_rental_by_id(rental_id)
 
+	result["start_date"] = result["start_date"].strftime("%Y-%m-%d")
+	result["end_date"] = result["end_date"].strftime("%Y-%m-%d")
+
 	if result:
 		return JSONResponse(
 			status_code=status.HTTP_200_OK,
@@ -68,7 +71,7 @@ async def accept_rental(request: Dict):
 			detail="Error verifying rental"
 		)
 
-@router.delete('/reject_rental')
+@router.put('/reject_rental')
 async def reject_rental(request: Dict):
 	rental_id = request["rental_id"]
 	if controller.reject_rental(rental_id):

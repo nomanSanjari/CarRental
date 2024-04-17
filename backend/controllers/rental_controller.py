@@ -12,8 +12,8 @@ class RentalController:
 			discount_id = None
 
 		db = get_db_connection()
-		cursor = db.cursor()
-		sql = """INSERT INTO Rental (start_date, end_date, vehicle_id, customer_id, discount_id, verified, total_price) VALUES (%s, %s, %s, %s, %s, %s, %s)"""
+		cursor = db.cursor(pymysql.cursors.DictCursor)
+		sql = """INSERT INTO Rental (start_date, end_date, vehicle_id, customer_id, discount_id, total_price, verified) VALUES (%s, %s, %s, %s, %s, %s, %s)"""
 
 		verified = 0
 		total_price = 0
@@ -25,7 +25,7 @@ class RentalController:
 
 		total_price = calculate_price_after_discount(total_price, discount_id)
 
-		values = (start_date, end_date, vehicle_id, customer_id, discount_id, verified, total_price)
+		values = (start_date, end_date, vehicle_id, customer_id, discount_id, total_price, verified)
 
 		try:
 			cursor.execute(sql, values)
@@ -38,8 +38,8 @@ class RentalController:
 
 	def get_rental_by_id(self, rental_id):
 		db = get_db_connection()
-		cursor = db.cursor()
-		sql = """SELECT * FROM Rental WHERE rental_id = %s"""
+		cursor = db.cursor(pymysql.cursors.DictCursor)
+		sql = """SELECT * FROM Rental WHERE id = %s"""
 		values = (rental_id,)
 
 		cursor.execute(sql, values)
@@ -56,7 +56,7 @@ class RentalController:
 
 	def get_all_rentals(self):
 		db = get_db_connection()
-		cursor = db.cursor()
+		cursor = db.cursor(pymysql.cursors.DictCursor)
 		sql = """SELECT * FROM Rental"""
 
 		cursor.execute(sql)
@@ -88,7 +88,7 @@ class RentalController:
 	def accept_rental(self, rental_id):
 		db = get_db_connection()
 		cursor = db.cursor()
-		sql = """UPDATE Rental SET verified = 'true' WHERE id = %s"""
+		sql = """UPDATE Rental SET verified = 1 WHERE id = %s"""
 		values = (rental_id,)
 
 		customer_id = """SELECT customer_id FROM Rental WHERE id = %s"""

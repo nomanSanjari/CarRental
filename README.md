@@ -11,8 +11,9 @@
 
 * **backend/**: Contains the Python source code for the FastAPI application.
     * **requirements.txt**: A list of required Python packages. 
-    * **app.py** (or similar): Your main FastAPI application file.
+    * **main.py** (or similar): Your main FastAPI application file.
     * **routers/**: Directory containing API route definitions.
+    * **controllers/**: Directory containing API controller definitions.
     * **utils/**: Directory containing helper functions and modules.
 * **database/**: Contains database-related files.
     * **main.sql**: The primary SQL file defining your database structure.

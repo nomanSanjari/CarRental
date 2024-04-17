@@ -30,7 +30,17 @@ class RentalController:
 		try:
 			cursor.execute(sql, values)
 			db.commit()
-			return cursor.lastrowid
+
+			rental_row_id = cursor.lastrowid
+
+			sql = """UPDATE Vehicle SET is_available = 0 WHERE id = %s"""
+			values = vehicle_id
+
+			cursor.execute(sql, values)
+			db.commit()
+			
+			return rental_row_id
+
 		except pymysql.err.IntegrityError as e:
 			print(f"Error creating rental: {e}")
 			db.rollback()
